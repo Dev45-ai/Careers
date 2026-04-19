@@ -5,297 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Developer Framework | Level 1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #3f7249;
-            --primary-light: #def7ec;
-            --secondary: #0f172a;
-            --accent: #064e3b;
-            --success: #047857;
-            --warning: #92400e;
-            --danger: #b91c1c;
-            --gray-100: #f1f5f9;
-            --gray-200: #e2e8f0;
-            --gray-300: #cbd5e1;
-            --gray-700: #334155;
-            --table-header: #ecfdf5;
-            --alt-row: #f8fafc;
-            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --border-color: #cbd5e1;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            color: #1e293b;
-            background-color: #ffffff;
-            padding: 20px;
-            min-width: 1200px;
-        }
-        
-        .container {
-            max-width: none;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        header {
-            background: linear-gradient(135deg, var(--primary), #166534);
-            color: white;
-            border-radius: 12px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            box-shadow: var(--card-shadow);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-        
-        .subtitle {
-            font-size: 1.25rem;
-            opacity: 0.9;
-            max-width: 800px;
-        }
-        
-        .meta {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .meta-item {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            backdrop-filter: blur(4px);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
-            overflow: hidden;
-            margin-bottom: 2rem;
-            border: 1px solid var(--border-color);
-        }
-        
-        .card-header {
-            background: var(--primary-light);
-            padding: 1.25rem 1.5rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .category-title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.75rem;
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .category-subtitle {
-            color: var(--gray-700);
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-        
-        .card-body {
-            padding: 1.25rem;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.875rem;
-        }
-        
-        th {
-            background: var(--table-header);
-            color: var(--primary);
-            text-align: left;
-            padding: 0.9rem 1.1rem;
-            font-weight: 600;
-            border-right: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-        }
-        
-        th:last-child {
-            border-right: none;
-        }
-        
-        td {
-            padding: 0.9rem 1.1rem;
-            border-bottom: 1px solid var(--border-color);
-            vertical-align: top;
-            border-right: 1px solid var(--border-color);
-        }
-        
-        td:last-child {
-            border-right: none;
-        }
-        
-        tr:nth-child(even) {
-            background-color: var(--alt-row);
-        }
-        
-        tr:first-child th {
-            border-top: none;
-        }
-        
-        tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .subsection-header {
-            background: #f0fff4;
-            font-weight: 700;
-            color: var(--primary);
-            padding: 1rem 1.1rem;
-            border-bottom: 2px solid var(--border-color);
-        }
-        
-        .kpi-badge {
-            display: inline-block;
-            background: var(--success);
-            color: white;
-            padding: 0.15rem 0.5rem;
-            border-radius: 4px;
-            font-weight: 500;
-            margin: 0.15rem;
-            font-size: 0.75rem;
-        }
-        
-        .sl-badge {
-            background: var(--warning);
-        }
-        
-        .metric-highlight {
-            background: var(--primary-light);
-            padding: 1.25rem;
-            border-radius: 8px;
-            margin: 1.25rem 0;
-            border-left: 3px solid var(--primary);
-        }
-        
-        .competency-tag {
-            display: inline-block;
-            background: var(--gray-100);
-            padding: 0.15rem 0.5rem;
-            border-radius: 4px;
-            margin: 0.15rem;
-            font-size: 0.75rem;
-            border: 1px solid var(--gray-300);
-        }
-        
-        .alert-box {
-            background: #fffbeb;
-            border-left: 4px solid var(--warning);
-            padding: 1rem;
-            border-radius: 0 6px 6px 0;
-            margin: 1.25rem 0;
-            font-size: 0.95rem;
-        }
-        
-        .section-title {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin: 2rem 0 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border-color);
-        }
-        
-        .subsection-title {
-            font-size: 1.25rem;
-            color: var(--accent);
-            margin: 1.5rem 0 0.75rem;
-            font-weight: 600;
-        }
-        
-        .subcategory-card {
-            margin-bottom: 2.5rem;
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-        }
-        
-        .subcategory-header {
-            background: var(--primary-light);
-            padding: 0.85rem 1.1rem;
-            font-weight: 700;
-            font-size: 1.15rem;
-            color: var(--primary);
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .key-points {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin: 0.5rem 0;
-        }
-        
-        .tag {
-            background: var(--gray-100);
-            padding: 0.25rem 0.65rem;
-            border-radius: 6px;
-            font-size: 0.825rem;
-            font-weight: 500;
-        }
-        
-        .tag-period {
-            background: rgba(139, 92, 246, 0.1);
-            color: var(--primary);
-            border: 1px solid rgba(139, 92, 246, 0.2);
-        }
-        
-        .tag-quality {
-            background: rgba(4, 120, 87, 0.1);
-            color: var(--success);
-            border: 1px solid rgba(4, 120, 87, 0.2);
-        }
-        
-        .tag-efficiency {
-            background: rgba(146, 64, 14, 0.1);
-            color: var(--warning);
-            border: 1px solid rgba(146, 64, 14, 0.2);
-        }
-        
-        .main-content {
-            min-width: 1200px;
-        }
-        
-        .highlight-box {
-            background: #def7ec;
-            border-left: 3px solid var(--primary);
-            padding: 0.75rem 1rem;
-            margin: 0.75rem 0;
-            border-radius: 0 4px 4px 0;
-        }
-        
-        .highlight-box-danger {
-            background: #fef2f2;
-            border-left-color: var(--danger);
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -774,297 +483,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Developer Framework | Level 2</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #3f7249;
-            --primary-light: #def7ec;
-            --secondary: #0f172a;
-            --accent: #064e3b;
-            --success: #047857;
-            --warning: #92400e;
-            --danger: #b91c1c;
-            --gray-100: #f1f5f9;
-            --gray-200: #e2e8f0;
-            --gray-300: #cbd5e1;
-            --gray-700: #334155;
-            --table-header: #ecfdf5;
-            --alt-row: #f8fafc;
-            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --border-color: #cbd5e1;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            color: #1e293b;
-            background-color: #ffffff;
-            padding: 20px;
-            min-width: 1200px;
-        }
-        
-        .container {
-            max-width: none;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        header {
-            background: linear-gradient(135deg, var(--primary), #166534);
-            color: white;
-            border-radius: 12px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            box-shadow: var(--card-shadow);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-        
-        .subtitle {
-            font-size: 1.25rem;
-            opacity: 0.9;
-            max-width: 800px;
-        }
-        
-        .meta {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .meta-item {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            backdrop-filter: blur(4px);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
-            overflow: hidden;
-            margin-bottom: 2rem;
-            border: 1px solid var(--border-color);
-        }
-        
-        .card-header {
-            background: var(--primary-light);
-            padding: 1.25rem 1.5rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .category-title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.75rem;
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .category-subtitle {
-            color: var(--gray-700);
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-        
-        .card-body {
-            padding: 1.25rem;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.875rem;
-        }
-        
-        th {
-            background: var(--table-header);
-            color: var(--primary);
-            text-align: left;
-            padding: 0.9rem 1.1rem;
-            font-weight: 600;
-            border-right: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-        }
-        
-        th:last-child {
-            border-right: none;
-        }
-        
-        td {
-            padding: 0.9rem 1.1rem;
-            border-bottom: 1px solid var(--border-color);
-            vertical-align: top;
-            border-right: 1px solid var(--border-color);
-        }
-        
-        td:last-child {
-            border-right: none;
-        }
-        
-        tr:nth-child(even) {
-            background-color: var(--alt-row);
-        }
-        
-        tr:first-child th {
-            border-top: none;
-        }
-        
-        tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .subsection-header {
-            background: #f0fff4;
-            font-weight: 700;
-            color: var(--primary);
-            padding: 1rem 1.1rem;
-            border-bottom: 2px solid var(--border-color);
-        }
-        
-        .kpi-badge {
-            display: inline-block;
-            background: var(--success);
-            color: white;
-            padding: 0.15rem 0.5rem;
-            border-radius: 4px;
-            font-weight: 500;
-            margin: 0.15rem;
-            font-size: 0.75rem;
-        }
-        
-        .sl-badge {
-            background: var(--warning);
-        }
-        
-        .metric-highlight {
-            background: var(--primary-light);
-            padding: 1.25rem;
-            border-radius: 8px;
-            margin: 1.25rem 0;
-            border-left: 3px solid var(--primary);
-        }
-        
-        .competency-tag {
-            display: inline-block;
-            background: var(--gray-100);
-            padding: 0.15rem 0.5rem;
-            border-radius: 4px;
-            margin: 0.15rem;
-            font-size: 0.75rem;
-            border: 1px solid var(--gray-300);
-        }
-        
-        .alert-box {
-            background: #fffbeb;
-            border-left: 4px solid var(--warning);
-            padding: 1rem;
-            border-radius: 0 6px 6px 0;
-            margin: 1.25rem 0;
-            font-size: 0.95rem;
-        }
-        
-        .section-title {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin: 2rem 0 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border-color);
-        }
-        
-        .subsection-title {
-            font-size: 1.25rem;
-            color: var(--accent);
-            margin: 1.5rem 0 0.75rem;
-            font-weight: 600;
-        }
-        
-        .subcategory-card {
-            margin-bottom: 2.5rem;
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-        }
-        
-        .subcategory-header {
-            background: var(--primary-light);
-            padding: 0.85rem 1.1rem;
-            font-weight: 700;
-            font-size: 1.15rem;
-            color: var(--primary);
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .key-points {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin: 0.5rem 0;
-        }
-        
-        .tag {
-            background: var(--gray-100);
-            padding: 0.25rem 0.65rem;
-            border-radius: 6px;
-            font-size: 0.825rem;
-            font-weight: 500;
-        }
-        
-        .tag-period {
-            background: rgba(139, 92, 246, 0.1);
-            color: var(--primary);
-            border: 1px solid rgba(139, 92, 246, 0.2);
-        }
-        
-        .tag-quality {
-            background: rgba(4, 120, 87, 0.1);
-            color: var(--success);
-            border: 1px solid rgba(4, 120, 87, 0.2);
-        }
-        
-        .tag-efficiency {
-            background: rgba(146, 64, 14, 0.1);
-            color: var(--warning);
-            border: 1px solid rgba(146, 64, 14, 0.2);
-        }
-        
-        .main-content {
-            min-width: 1200px;
-        }
-        
-        .highlight-box {
-            background: #def7ec;
-            border-left: 3px solid var(--primary);
-            padding: 0.75rem 1rem;
-            margin: 0.75rem 0;
-            border-radius: 0 4px 4px 0;
-        }
-        
-        .highlight-box-danger {
-            background: #fef2f2;
-            border-left-color: var(--danger);
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -1573,297 +991,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Developer Framework | Level 3</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #3f7249;
-            --primary-light: #def7ec;
-            --secondary: #0f172a;
-            --accent: #064e3b;
-            --success: #047857;
-            --warning: #92400e;
-            --danger: #b91c1c;
-            --gray-100: #f1f5f9;
-            --gray-200: #e2e8f0;
-            --gray-300: #cbd5e1;
-            --gray-700: #334155;
-            --table-header: #ecfdf5;
-            --alt-row: #f8fafc;
-            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --border-color: #cbd5e1;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            color: #1e293b;
-            background-color: #ffffff;
-            padding: 20px;
-            min-width: 1200px;
-        }
-        
-        .container {
-            max-width: none;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        header {
-            background: linear-gradient(135deg, var(--primary), #166534);
-            color: white;
-            border-radius: 12px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            box-shadow: var(--card-shadow);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-        
-        .subtitle {
-            font-size: 1.25rem;
-            opacity: 0.9;
-            max-width: 800px;
-        }
-        
-        .meta {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .meta-item {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            backdrop-filter: blur(4px);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
-            overflow: hidden;
-            margin-bottom: 2rem;
-            border: 1px solid var(--border-color);
-        }
-        
-        .card-header {
-            background: var(--primary-light);
-            padding: 1.25rem 1.5rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .category-title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.75rem;
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .category-subtitle {
-            color: var(--gray-700);
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-        
-        .card-body {
-            padding: 1.25rem;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.875rem;
-        }
-        
-        th {
-            background: var(--table-header);
-            color: var(--primary);
-            text-align: left;
-            padding: 0.9rem 1.1rem;
-            font-weight: 600;
-            border-right: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-        }
-        
-        th:last-child {
-            border-right: none;
-        }
-        
-        td {
-            padding: 0.9rem 1.1rem;
-            border-bottom: 1px solid var(--border-color);
-            vertical-align: top;
-            border-right: 1px solid var(--border-color);
-        }
-        
-        td:last-child {
-            border-right: none;
-        }
-        
-        tr:nth-child(even) {
-            background-color: var(--alt-row);
-        }
-        
-        tr:first-child th {
-            border-top: none;
-        }
-        
-        tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .subsection-header {
-            background: #f0fff4;
-            font-weight: 700;
-            color: var(--primary);
-            padding: 1rem 1.1rem;
-            border-bottom: 2px solid var(--border-color);
-        }
-        
-        .kpi-badge {
-            display: inline-block;
-            background: var(--success);
-            color: white;
-            padding: 0.15rem 0.5rem;
-            border-radius: 4px;
-            font-weight: 500;
-            margin: 0.15rem;
-            font-size: 0.75rem;
-        }
-        
-        .sl-badge {
-            background: var(--warning);
-        }
-        
-        .metric-highlight {
-            background: var(--primary-light);
-            padding: 1.25rem;
-            border-radius: 8px;
-            margin: 1.25rem 0;
-            border-left: 3px solid var(--primary);
-        }
-        
-        .competency-tag {
-            display: inline-block;
-            background: var(--gray-100);
-            padding: 0.15rem 0.5rem;
-            border-radius: 4px;
-            margin: 0.15rem;
-            font-size: 0.75rem;
-            border: 1px solid var(--gray-300);
-        }
-        
-        .alert-box {
-            background: #fffbeb;
-            border-left: 4px solid var(--warning);
-            padding: 1rem;
-            border-radius: 0 6px 6px 0;
-            margin: 1.25rem 0;
-            font-size: 0.95rem;
-        }
-        
-        .section-title {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin: 2rem 0 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border-color);
-        }
-        
-        .subsection-title {
-            font-size: 1.25rem;
-            color: var(--accent);
-            margin: 1.5rem 0 0.75rem;
-            font-weight: 600;
-        }
-        
-        .subcategory-card {
-            margin-bottom: 2.5rem;
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-        }
-        
-        .subcategory-header {
-            background: var(--primary-light);
-            padding: 0.85rem 1.1rem;
-            font-weight: 700;
-            font-size: 1.15rem;
-            color: var(--primary);
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .key-points {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin: 0.5rem 0;
-        }
-        
-        .tag {
-            background: var(--gray-100);
-            padding: 0.25rem 0.65rem;
-            border-radius: 6px;
-            font-size: 0.825rem;
-            font-weight: 500;
-        }
-        
-        .tag-period {
-            background: rgba(139, 92, 246, 0.1);
-            color: var(--primary);
-            border: 1px solid rgba(139, 92, 246, 0.2);
-        }
-        
-        .tag-quality {
-            background: rgba(4, 120, 87, 0.1);
-            color: var(--success);
-            border: 1px solid rgba(4, 120, 87, 0.2);
-        }
-        
-        .tag-efficiency {
-            background: rgba(146, 64, 14, 0.1);
-            color: var(--warning);
-            border: 1px solid rgba(146, 64, 14, 0.2);
-        }
-        
-        .main-content {
-            min-width: 1200px;
-        }
-        
-        .highlight-box {
-            background: #def7ec;
-            border-left: 3px solid var(--primary);
-            padding: 0.75rem 1rem;
-            margin: 0.75rem 0;
-            border-radius: 0 4px 4px 0;
-        }
-        
-        .highlight-box-danger {
-            background: #fef2f2;
-            border-left-color: var(--danger);
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -1888,7 +1015,7 @@
             </header>
 
             <div class="highlight-box">
-                <strong>Overarching Goal:</strong> To evolve into a reliable feature lead and technical anchor—responsible for the stability, quality, and strategic delivery of significant features or modules, while guiding less experienced team members.
+                <strong>Overarching Goal:</strong> To evolve into a reliable feature lead and technical anchorÂ—responsible for the stability, quality, and strategic delivery of significant features or modules, while guiding less experienced team members.
             </div>
             
             <div class="highlight-box highlight-box-danger">
@@ -1900,7 +1027,7 @@
                 <i class="fas fa-project-diagram" style="margin-right: 10px; color: var(--primary);"></i>
                 Category 1: Technical Delivery & Project Control (The Planner)
             </h2>
-            <p style="margin-bottom: 1.5rem; color: var(--gray-700);"><strong>Goal:</strong> To take ownership of the end-to-end delivery of complex features or components—from requirement analysis to deployment—with a focus on predictability, impact awareness, and operational stability.</p>
+            <p style="margin-bottom: 1.5rem; color: var(--gray-700);"><strong>Goal:</strong> To take ownership of the end-to-end delivery of complex features or componentsÂ—from requirement analysis to deploymentÂ—with a focus on predictability, impact awareness, and operational stability.</p>
             
             <!-- Subcategory 1.1 -->
             <div class="subcategory-card">
@@ -1924,7 +1051,7 @@
                                     <ul>
                                         <li><strong>Clarity and completeness</strong> of requirements gathered from Tech Lead</li>
                                         <li>The <strong>thoroughness and accuracy</strong> of impact analysis before any change</li>
-                                        <li>The <strong>realism and communication</strong> of ETAs—and adherence to them</li>
+                                        <li>The <strong>realism and communication</strong> of ETAsÂ—and adherence to them</li>
                                     </ul>
                                 </td>
                                 <td>
@@ -2029,7 +1156,7 @@
                 <i class="fas fa-cogs" style="margin-right: 10px; color: var(--primary);"></i>
                 Category 2: Operational Ownership & Escalation (The Stabilizer)
             </h2>
-            <p style="margin-bottom: 1.5rem; color: var(--gray-700);"><strong>Goal:</strong> To act as a frontline defender of production stability—capable of independently diagnosing, fixing, and deploying hotfixes for live issues, while maintaining strict communication discipline.</p>
+            <p style="margin-bottom: 1.5rem; color: var(--gray-700);"><strong>Goal:</strong> To act as a frontline defender of production stabilityÂ—capable of independently diagnosing, fixing, and deploying hotfixes for live issues, while maintaining strict communication discipline.</p>
             
             <!-- Subcategory 2.1 -->
             <div class="subcategory-card">
@@ -2139,7 +1266,7 @@
                                 </td>
                                 <td>
                                     <ul>
-                                        <li>Use Vinshub/Asana meticulously—<span class="kpi-badge">SET THE STANDARD</span> for team</li>
+                                        <li>Use Vinshub/Asana meticulouslyÂ—<span class="kpi-badge">SET THE STANDARD</span> for team</li>
                                         <li><span class="kpi-badge">PROACTIVELY ASSIST</span> Level 1/2 devs when blocked</li>
                                         <li>Uphold all previously agreed SLAs <span class="kpi-badge sl-badge">WITHOUT REMINDER</span></li>
                                     </ul>
@@ -2316,7 +1443,7 @@
                         <i class="fas fa-check-circle"></i> Critical Success Factor
                     </h3>
                     <p style="color: rgba(255,255,255,0.95); line-height: 1.8;">
-                        <strong>When others spontaneously rely on your judgment.</strong> When your recommendations on design, performance, or process are sought without prompting. This is the hallmark of Level 3 maturity—your expertise has become trusted bedrock that others build upon.
+                        <strong>When others spontaneously rely on your judgment.</strong> When your recommendations on design, performance, or process are sought without prompting. This is the hallmark of Level 3 maturityÂ—your expertise has become trusted bedrock that others build upon.
                     </p>
                     
                     <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 1.25rem; margin-top: 1.25rem;">
@@ -2344,13 +1471,13 @@
                 <p style="margin: 1rem 0; background: #fffbf0; padding: 0.75rem; border-radius: 6px; border-left: 3px solid var(--warning);">
                     <strong>How we measure Level 3 success:</strong>
                     <ul style="margin: 0.5rem 0 0 1.5rem;">
-                        <li><span style="font-weight: bold; color: var(--success);">When you're the first person called for production issues</span> in your domain—not because you caused them, but because you're the expert</li>
+                        <li><span style="font-weight: bold; color: var(--success);">When you're the first person called for production issues</span> in your domainÂ—not because you caused them, but because you're the expert</li>
                         <li><span style="font-weight: bold; color: var(--primary);">When your code reviews consistently uncover architectural issues</span> others miss</li>
                         <li><span style="font-weight: bold; color: var(--warning);">When junior developers instinctively seek your input</span> before escalating to leads</li>
                     </ul>
-                    This shift marks the transition from being a junior specialist to a true senior asset—someone peers lean on for stability.
+                    This shift marks the transition from being a junior specialist to a true senior assetÂ—someone peers lean on for stability.
                 </p>
-                <p><strong>Remember:</strong> At Level 3, your job isn't to do everything yourself—it's to <strong>enable the team to operate at a higher level</strong> through your expertise and reliability.</p>
+                <p><strong>Remember:</strong> At Level 3, your job isn't to do everything yourselfÂ—it's to <strong>enable the team to operate at a higher level</strong> through your expertise and reliability.</p>
             </div>
         </div>
     </div>
@@ -2363,383 +1490,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Developer Framework | Level 4</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #3f7249;
-            --primary-light: #def7ec;
-            --secondary: #0f172a;
-            --accent: #064e3b;
-            --success: #047857;
-            --warning: #92400e;
-            --danger: #b91c1c;
-            --gray-100: #f1f5f9;
-            --gray-200: #e2e8f0;
-            --gray-300: #cbd5e1;
-            --gray-700: #334155;
-            --table-header: #ecfdf5;
-            --alt-row: #f8fafc;
-            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --border-color: #cbd5e1;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
-            color: #1e293b;
-            background-color: #ffffff;
-            padding: 20px;
-            min-width: 1200px;
-        }
-        
-        .container {
-            max-width: none;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        header {
-            background: linear-gradient(135deg, var(--primary), #166534);
-            color: white;
-            border-radius: 12px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            box-shadow: var(--card-shadow);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-        
-        .subtitle {
-            font-size: 1.25rem;
-            opacity: 0.9;
-            max-width: 800px;
-        }
-        
-        .meta {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .meta-item {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            backdrop-filter: blur(4px);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
-            overflow: hidden;
-            margin-bottom: 2rem;
-            border: 1px solid var(--border-color);
-        }
-        
-        .card-header {
-            background: var(--primary-light);
-            padding: 1.25rem 1.5rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .category-title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.75rem;
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .category-subtitle {
-            color: var(--gray-700);
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-        
-        .card-body {
-            padding: 1.25rem;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.875rem;
-        }
-        
-        th {
-            background: var(--table-header);
-            color: var(--primary);
-            text-align: left;
-            padding: 0.9rem 1.1rem;
-            font-weight: 600;
-            border-right: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-        }
-        
-        th:last-child {
-            border-right: none;
-        }
-        
-        td {
-            padding: 0.9rem 1.1rem;
-            border-bottom: 1px solid var(--border-color);
-            vertical-align: top;
-            border-right: 1px solid var(--border-color);
-        }
-        
-        td:last-child {
-            border-right: none;
-        }
-        
-        tr:nth-child(even) {
-            background-color: var(--alt-row);
-        }
-        
-        tr:first-child th {
-            border-top: none;
-        }
-        
-        tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .subsection-header {
-            background: #f0fff4;
-            font-weight: 700;
-            color: var(--primary);
-            padding: 1rem 1.1rem;
-            border-bottom: 2px solid var(--border-color);
-        }
-        
-        .kpi-badge {
-            display: inline-block;
-            background: var(--success);
-            color: white;
-            padding: 0.15rem 0.5rem;
-            border-radius: 4px;
-            font-weight: 500;
-            margin: 0.15rem;
-            font-size: 0.75rem;
-        }
-        
-        .sl-badge {
-            background: var(--warning);
-        }
-        
-        .metric-highlight {
-            background: var(--primary-light);
-            padding: 1.25rem;
-            border-radius: 8px;
-            margin: 1.25rem 0;
-            border-left: 3px solid var(--primary);
-        }
-        
-        .competency-tag {
-            display: inline-block;
-            background: var(--gray-100);
-            padding: 0.15rem 0.5rem;
-            border-radius: 4px;
-            margin: 0.15rem;
-            font-size: 0.75rem;
-            border: 1px solid var(--gray-300);
-        }
-        
-        .alert-box {
-            background: #fffbeb;
-            border-left: 4px solid var(--warning);
-            padding: 1rem;
-            border-radius: 0 6px 6px 0;
-            margin: 1.25rem 0;
-            font-size: 0.95rem;
-        }
-        
-        .section-title {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin: 2rem 0 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border-color);
-        }
-        
-        .subsection-title {
-            font-size: 1.25rem;
-            color: var(--accent);
-            margin: 1.5rem 0 0.75rem;
-            font-weight: 600;
-        }
-        
-        .subcategory-card {
-            margin-bottom: 2.5rem;
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-        }
-        
-        .subcategory-header {
-            background: var(--primary-light);
-            padding: 0.85rem 1.1rem;
-            font-weight: 700;
-            font-size: 1.15rem;
-            color: var(--primary);
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .key-points {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin: 0.5rem 0;
-        }
-        
-        .tag {
-            background: var(--gray-100);
-            padding: 0.25rem 0.65rem;
-            border-radius: 6px;
-            font-size: 0.825rem;
-            font-weight: 500;
-        }
-        
-        .tag-period {
-            background: rgba(139, 92, 246, 0.1);
-            color: var(--primary);
-            border: 1px solid rgba(139, 92, 246, 0.2);
-        }
-        
-        .tag-quality {
-            background: rgba(4, 120, 87, 0.1);
-            color: var(--success);
-            border: 1px solid rgba(4, 120, 87, 0.2);
-        }
-        
-        .tag-efficiency {
-            background: rgba(146, 64, 14, 0.1);
-            color: var(--warning);
-            border: 1px solid rgba(146, 64, 14, 0.2);
-        }
-        
-        .main-content {
-            min-width: 1200px;
-        }
-        
-        .highlight-box {
-            background: #def7ec;
-            border-left: 3px solid var(--primary);
-            padding: 0.75rem 1rem;
-            margin: 0.75rem 0;
-            border-radius: 0 4px 4px 0;
-        }
-        
-        .highlight-box-danger {
-            background: #fef2f2;
-            border-left-color: var(--danger);
-        }
-        
-        .tip-section {
-            background: #f8fafc;
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-left: 4px solid var(--primary);
-        }
-        
-        .tip-title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
-        }
-        
-        .productivity-killers {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        
-        .killer-card {
-            background: #fff;
-            border-radius: 8px;
-            padding: 1.25rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            border-left: 3px solid var(--danger);
-        }
-        
-        .killer-title {
-            font-weight: 700;
-            color: var(--danger);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .solution {
-            background: rgba(15, 23, 42, 0.03);
-            border-radius: 6px;
-            padding: 0.75rem;
-            margin-top: 0.75rem;
-            font-size: 0.95rem;
-        }
-        
-        .solution-title {
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.25rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .evolution-item {
-            background: rgba(255,255,255,0.1);
-            border-radius: 8px;
-            padding: 1.25rem;
-            border-left: 3px solid white;
-            margin-bottom: 1.25rem;
-        }
-        
-        .evolution-item:last-child {
-            margin-bottom: 0;
-        }
-        
-        .evolution-title {
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #6ee7b7;
-        }
-        
-        .evolution-lens {
-            background: linear-gradient(to right, var(--accent), #064e3b);
-            color: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 2.5rem 0;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -2764,7 +1514,7 @@
             </header>
 
             <div class="highlight-box">
-                <strong>Overarching Goal:</strong> To evolve into a technical anchor and domain owner—responsible for the architectural integrity, performance, and long-term health of critical system components, while elevating the entire team's capability through mentorship and automation.
+                <strong>Overarching Goal:</strong> To evolve into a technical anchor and domain ownerÂ—responsible for the architectural integrity, performance, and long-term health of critical system components, while elevating the entire team's capability through mentorship and automation.
             </div>
             
             <div class="highlight-box highlight-box-danger">
@@ -3018,7 +1768,7 @@
                                 </td>
                                 <td>
                                     <ul>
-                                        <li><span class="kpi-badge">"AUTOMATE FIRST" MINDSET</span> — script any repetitive task done twice</li>
+                                        <li><span class="kpi-badge">"AUTOMATE FIRST" MINDSET</span> Â— script any repetitive task done twice</li>
                                         <li><span class="kpi-badge">OWN HEALTH</span> of automated tests and deployment scripts</li>
                                         <li><span class="kpi-badge sl-badge">PRESENT AUTOMATION BENEFITS QUANTITATIVELY</span> in demos</li>
                                     </ul>
@@ -3207,7 +1957,7 @@
                             <i class="fas fa-thumbs-up"></i> From Component Owner to System Architect
                         </h4>
                         <p style="color: rgba(255,255,255,0.85);">
-                            You no longer just maintain systems—you shape their evolution from afar. Your vision spans beyond today's work to tomorrow's needs. <strong>Sizing a system for 3-5x growth comes as naturally as writing a unit test did at Level 1</strong>.
+                            You no longer just maintain systemsÂ—you shape their evolution from afar. Your vision spans beyond today's work to tomorrow's needs. <strong>Sizing a system for 3-5x growth comes as naturally as writing a unit test did at Level 1</strong>.
                         </p>
                     </div>
                     
@@ -3244,7 +1994,7 @@
                         <i class="fas fa-check-circle"></i> Critical Success Factor
                     </h3>
                     <p style="color: rgba(255,255,255,0.95); line-height: 1.8;">
-                        <strong>When your technical decisions become the organization's standards.</strong> When product managers proactively seek your input on feasibility during feature ideation, and executives reference your technical assessments in strategic planning. This is the hallmark of Level 4 maturity—your technical judgment shapes organizational direction.
+                        <strong>When your technical decisions become the organization's standards.</strong> When product managers proactively seek your input on feasibility during feature ideation, and executives reference your technical assessments in strategic planning. This is the hallmark of Level 4 maturityÂ—your technical judgment shapes organizational direction.
                     </p>
                     
                     <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 1.25rem; margin-top: 1.25rem;">
@@ -3272,13 +2022,13 @@
                 <p style="margin: 1rem 0; background: #fffbf0; padding: 0.75rem; border-radius: 6px; border-left: 3px solid var(--warning);">
                     <strong>How we measure Level 4 success:</strong>
                     <ul style="margin: 0.5rem 0 0 1.5rem;">
-                        <li><span style="font-weight: bold; color: var(--success);">When leadership consults you during strategic planning</span>—not just for technical feasibility, but for market opportunities your architecture enables</li>
+                        <li><span style="font-weight: bold; color: var(--success);">When leadership consults you during strategic planning</span>Â—not just for technical feasibility, but for market opportunities your architecture enables</li>
                         <li><span style="font-weight: bold; color: var(--primary);">When your monitoring dashboards become the single source of truth</span> for business metrics across teams</li>
                         <li><span style="font-weight: bold; color: var(--warning);">When other teams adopt your patterns without being asked</span> because they've proven reliable at scale</li>
                     </ul>
-                    This shift marks the transition from being a technical specialist to a strategic business partner—someone whose technical vision directly enables organizational growth.
+                    This shift marks the transition from being a technical specialist to a strategic business partnerÂ—someone whose technical vision directly enables organizational growth.
                 </p>
-                <p><strong>Remember:</strong> At Level 4, your job isn't to be the smartest person in the room—it's to <strong>create environments where the entire team makes smarter decisions</strong> through the systems, patterns, and knowledge you establish.</p>
+                <p><strong>Remember:</strong> At Level 4, your job isn't to be the smartest person in the roomÂ—it's to <strong>create environments where the entire team makes smarter decisions</strong> through the systems, patterns, and knowledge you establish.</p>
             </div>
             
             <div class="tip-section">
@@ -3294,7 +2044,7 @@
                         <p>Focus on deep expertise in 1-2 critical domains rather than surface-level knowledge across many areas. Become the undisputed expert in your chosen domains.</p>
                         <div class="solution">
                             <div class="solution-title" style="color: var(--primary);"><i class="fas fa-check-circle"></i> Practical Action: The 10% Deep Dive</div>
-                            <p>Block 10% of your time each week for deep technical exploration in your domain—reading research papers, studying open-source implementations, or experimenting with edge cases.</p>
+                            <p>Block 10% of your time each week for deep technical exploration in your domainÂ—reading research papers, studying open-source implementations, or experimenting with edge cases.</p>
                         </div>
                     </div>
                     
